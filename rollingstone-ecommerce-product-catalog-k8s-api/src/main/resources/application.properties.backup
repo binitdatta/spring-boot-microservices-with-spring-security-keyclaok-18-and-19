@@ -1,0 +1,24 @@
+category.request.path = /category/
+category.port = 8092
+category.service.host = http://localhost
+
+
+
+#OAuth2 Related
+spring.security.oauth2.resourceserver.jwt.issuer-uri=http://localhost:8080/auth/realms/binitdattarealm
+spring.security.oauth2.resourceserver.jwt.jwk-set-uri=http://localhost:8080/auth/realms/binitdattarealm/protocol/openid-connect/certs
+spring.security.oauth2.client.provider.keycloak.issuer-uri=http://localhost:8180/auth/realms/binitdattarealm
+
+
+
+spring.security.oauth2.client.registration.mywebclient.client-id=rollingstone_ecommerce_product_api_client
+spring.security.oauth2.client.registration.mywebclient.client-secret=NNVItsKIdJUVChYcIESewus6KWkVeep4
+spring.security.oauth2.client.registration.mywebclient.scope=openid, profile, roles
+spring.security.oauth2.client.registration.mywebclient.authorization-grant-type=client_credentials
+spring.security.oauth2.client.registration.mywebclient.provider=keycloak
+
+
+spring.security.oauth2.client.provider.mywebclient.authorization-uri = http://localhost:8080/auth/realms/binitdattarealm/protocol/openid-connect/auth
+spring.security.oauth2.client.provider.mywebclient.token-uri = http://localhost:8080/auth/realms/binitdattarealm/protocol/openid-connect/token
+spring.security.oauth2.client.provider.mywebclient.user-info-uri = http://localhost:8080/auth/realms/binitdattarealm/protocol/openid-connect/userinfo
+spring.security.oauth2.client.provider.mywebclient.user-name-attribute = sub

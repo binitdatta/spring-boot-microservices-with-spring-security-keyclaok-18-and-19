@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    <parent>
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-starter-parent</artifactId>
+        <version>2.6.3</version>
+        <relativePath/> <!-- lookup parent from repository -->
+    </parent>
+    <groupId>com.rollingstone</groupId>
+    <artifactId>spring-security-5-keycloak-user-storage-spi</artifactId>
+    <version>0.0.1-SNAPSHOT</version>
+    <name>spring-security-5-keycloak-user-storage-spi</name>
+    <description>spring-security-5-keycloak-user-storage-spi</description>
+    <properties>
+        <java.version>11</java.version>
+<!--        <keycloak.version>19.0.1</keycloak.version>-->
+<!--        <keycloak.version>16.1.1</keycloak.version>-->
+        <keycloak.version>18.0.2</keycloak.version>
+    </properties>
+    <dependencies>
+
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-web</artifactId>
+        </dependency>
+
+        <!-- https://mvnrepository.com/artifact/org.keycloak/keycloak-server-spi -->
+        <!-- https://javadoc.io/doc/org.keycloak/keycloak-server-spi/latest/index.html -->
+        <!-- https://javadoc.io/doc/org.keycloak/keycloak-server-spi/latest/org/keycloak/storage/user/package-summary.html -->
+        <dependency>
+            <groupId>org.keycloak</groupId>
+            <artifactId>keycloak-server-spi</artifactId>
+            <version>${keycloak.version}</version>
+            <scope>provided</scope>
+        </dependency>
+
+        <!-- https://mvnrepository.com/artifact/org.keycloak/keycloak-core -->
+        <!-- https://javadoc.io/doc/org.keycloak/keycloak-core/latest/index.html -->
+        <dependency>
+            <groupId>org.keycloak</groupId>
+            <artifactId>keycloak-core</artifactId>
+            <version>${keycloak.version}</version>
+        </dependency>
+
+        <!-- https://mvnrepository.com/artifact/org.jboss.resteasy/resteasy-client -->
+        <dependency>
+            <groupId>org.jboss.resteasy</groupId>
+            <artifactId>resteasy-client</artifactId>
+            <version>6.0.0.Final</version>
+        </dependency>
+
+        <!-- https://mvnrepository.com/artifact/org.jboss.resteasy/resteasy-jackson2-provider -->
+        <dependency>
+            <groupId>org.jboss.resteasy</groupId>
+            <artifactId>resteasy-jackson2-provider</artifactId>
+            <version>6.0.0.Final</version>
+        </dependency>
+
+        <!-- https://mvnrepository.com/artifact/org.jboss.resteasy/resteasy-multipart-provider -->
+        <dependency>
+            <groupId>org.jboss.resteasy</groupId>
+            <artifactId>resteasy-multipart-provider</artifactId>
+            <version>6.0.0.Final</version>
+        </dependency>
+
+        <!-- https://mvnrepository.com/artifact/org.keycloak/keycloak-services -->
+        <dependency>
+            <groupId>org.keycloak</groupId>
+            <artifactId>keycloak-services</artifactId>
+            <version>${keycloak.version}</version>
+            <scope>provided</scope>
+        </dependency>
+
+        <!-- https://mvnrepository.com/artifact/org.keycloak/keycloak-model-legacy -->
+<!--        <dependency>-->
+<!--            <groupId>org.keycloak</groupId>-->
+<!--            <artifactId>keycloak-model-legacy</artifactId>-->
+<!--            <version>${keycloak.version}</version>-->
+<!--        </dependency>-->
+
+        <dependency>
+            <groupId>org.json</groupId>
+            <artifactId>json</artifactId>
+            <version>20220320</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-test</artifactId>
+            <scope>test</scope>
+        </dependency>
+    </dependencies>
+
+<!--    <build>-->
+<!--        <finalName>rollingstone-storage-provider</finalName>-->
+<!--&lt;!&ndash;        <plugins>&ndash;&gt;-->
+<!--&lt;!&ndash;            <plugin>&ndash;&gt;-->
+<!--&lt;!&ndash;                <groupId>org.springframework.boot</groupId>&ndash;&gt;-->
+<!--&lt;!&ndash;                <artifactId>spring-boot-maven-plugin</artifactId>&ndash;&gt;-->
+<!--&lt;!&ndash;            </plugin>&ndash;&gt;-->
+<!--&lt;!&ndash;        </plugins>&ndash;&gt;-->
+<!--    </build>-->
+
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-shade-plugin</artifactId>
+                <executions>
+                    <execution>
+                        <phase>package</phase>
+                        <goals>
+                            <goal>shade</goal>
+                        </goals>
+                    </execution>
+                </executions>
+                <configuration>
+                    <finalName>rollingstone-storage-provider</finalName>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
+
+</project>
